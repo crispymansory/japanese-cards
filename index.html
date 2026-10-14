@@ -1,34 +1,58 @@
 <!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="日本語"><meta name="theme-color" content="#14161c">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="日本語">
+<meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#16140F" media="(prefers-color-scheme: dark)">
 <title>Заучивалка</title><link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Manrope:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="style.css"></head><body>
-<header><button id="homeBtn" class="ghost">🏠</button><h1>Заучивалка</h1><button id="statsBtn" class="ghost">📊</button></header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/></symbol>
+<symbol id="i-stats" viewBox="0 0 24 24"><path d="M4 20h16M7 16v-5M12 16V6M17 16v-8"/></symbol>
+<symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+</defs></svg>
+<header class="top">
+ <button id="homeBtn" class="brand" aria-label="Главная"><span class="seal">日</span><span class="brand-t"><b>Заучивалка</b><small>Genki · N5</small></span></button>
+ <nav><button id="statsBtn" class="icon" aria-label="Статистика"><svg><use href="#i-stats"/></svg></button></nav>
+</header>
+<div class="brush"><i id="brushFill"></i></div>
 <main>
 <section id="home">
- <h2>Уроки</h2><div id="lessons" class="chips"></div>
- <h2>Направление</h2><div id="dir" class="chips">
-  <button data-v="jr">Японский → Русский</button><button data-v="rj">Русский → Японский</button><button data-v="mix">Вперемешку</button></div>
- <h2>Новых слов за сессию: <span id="nNewVal"></span></h2><input id="nNew" type="range" min="0" max="50" step="5">
- <label class="row"><input type="checkbox" id="typeMode"> Режим ввода (Рус → Яп: пиши каной или ромадзи)</label>
- <label class="row"><input type="checkbox" id="autoSpeak"> Автоматически озвучивать японское</label>
- <p id="summary"></p>
- <button id="startBtn" class="big">Начать</button>
- <button id="practiceBtn" class="big alt">Повторить всё выбранное (без влияния на интервалы)</button>
+ <p class="eyebrow">今日の勉強</p>
+ <h2 class="title">Что учим сегодня?</h2>
+ <div class="block"><h3>Уроки</h3><div id="lessons" class="chips"></div></div>
+ <div class="block"><h3>Направление</h3><div id="dir" class="seg">
+  <button data-v="jr">日 → Рус</button><button data-v="rj">Рус → 日</button><button data-v="mix">Вперемешку</button></div></div>
+ <div class="block"><h3>Новых слов за сессию <span id="nNewVal" class="num"></span></h3><input id="nNew" type="range" min="0" max="50" step="5"></div>
+ <div class="block opts">
+  <label class="toggle"><input type="checkbox" id="typeMode"><span class="sw"></span><span>Писать ответ<small>Рус → 日: кана или ромадзи</small></span></label>
+  <label class="toggle"><input type="checkbox" id="autoSpeak"><span class="sw"></span><span>Озвучивать японское<small>автоматически на каждой карточке</small></span></label>
+ </div>
+ <p id="summary" class="summary"></p>
+ <button id="startBtn" class="primary">Начать сессию</button>
+ <button id="practiceBtn" class="quiet">Повторить всё выбранное — без влияния на интервалы</button>
 </section>
 <section id="study" hidden>
- <div id="progress"></div>
- <div id="card"><div id="front"></div><div id="back" hidden></div></div>
- <div id="typeBox" hidden><input id="answer" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="かな или romaji"><button id="checkBtn">Проверить</button></div>
+ <div id="progress" class="meta"></div>
+ <div class="stage"><div id="card" role="button" tabindex="0">
+  <div class="face f"><div id="front"></div><span class="corner">表</span></div>
+  <div class="face b"><div id="back"></div><span class="corner">裏</span></div>
+ </div></div>
+ <div id="typeBox" hidden><input id="answer" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="かな или romaji"><button id="checkBtn" class="primary sm">Проверить</button></div>
  <div id="verdict"></div>
- <button id="speakBtn" class="ghost big">🔊 Произнести</button>
- <div id="grade" hidden><button data-g="0" class="bad">Не помню</button><button data-g="1" class="mid">С трудом</button><button data-g="2" class="good">Помню</button></div>
- <p class="hint" id="hint">Нажми на карточку, чтобы перевернуть</p>
+ <div class="under">
+  <button id="speakBtn" class="icon ring" aria-label="Произнести"><svg><use href="#i-sound"/></svg></button>
+  <p class="hint" id="hint">Нажми на карточку, чтобы перевернуть</p>
+ </div>
+ <div id="grade" hidden><button data-g="0" class="pill bad">Не помню</button><button data-g="1" class="pill mid">С трудом</button><button data-g="2" class="pill good">Помню</button></div>
 </section>
-<section id="done" hidden><h2>Готово! 🎉</h2><p id="doneText"></p><button class="big" id="againBtn">На главную</button></section>
-<section id="stats" hidden><h2>Статистика</h2><table id="statTable"></table><p class="hint">Выучено = слово в коробке 4+ (интервал ≥ 7 дней).</p><button id="resetBtn" class="ghost">Сбросить прогресс</button></section>
+<section id="done" hidden><div class="donebox"><span class="seal big">済</span><h2 class="title">Сессия завершена</h2><p id="doneText"></p><button class="primary" id="againBtn">На главную</button></div></section>
+<section id="stats" hidden><p class="eyebrow">進歩</p><h2 class="title">Статистика</h2><div id="statTable"></div>
+ <p class="legend"><i class="lg l"></i>выучено <i class="lg s"></i>изучаю <i class="lg n"></i>новые</p>
+ <p class="hint">Выучено — интервал повторения 7 дней и больше.</p><button id="resetBtn" class="quiet danger">Сбросить прогресс</button></section>
 </main>
 <script src="srs.js"></script><script src="app.js"></script></body></html>
