@@ -97,3 +97,42 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;heigh
 .face{background-size:100% 56px;background-image:linear-gradient(transparent calc(100% - 1px),color-mix(in srgb,var(--ai) 5%,transparent) 0)}
 .vi{font-size:16px}
 @media (prefers-color-scheme:dark){.seg button.on{background:#38322A;box-shadow:inset 0 0 0 1px #4A4237}.seg{background:transparent}}
+/* ===== Югэн 幽玄 theme ===== */
+:root{--paper:#F3F3EB;--paper2:#F8F8F2;--ink:#37372F;--ink2:#5F6158;--ink3:#9A9C90;--line:#DCDDD2;--red:#1D3E2B;--ai:#809874;--pink:#F4DCEA;--pinkInk:#8A4A6B;
+--bad:#B4707F;--mid:#A39468;--good:#1D3E2B;--card:#FFFFFC;--sage:#7E9672;
+--shadow:0 1px 2px rgba(29,62,43,.06),0 10px 24px -10px rgba(29,62,43,.18),0 30px 60px -30px rgba(29,62,43,.25);
+--sans:"Golos Text",-apple-system,"Helvetica Neue",Arial,sans-serif;--serif:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;--brush:"Yuji Syuku","Hiragino Mincho ProN",serif;--noise:.25}
+@media (prefers-color-scheme:dark){:root{--paper:#14241A;--paper2:#1A2E21;--ink:#ECEDE3;--ink2:#B7BCAE;--ink3:#7F8A79;--line:#2C4234;--red:#A9C29B;--ai:#93AD86;--pink:#4A2F3C;--pinkInk:#F4DCEA;
+--bad:#D79AA8;--mid:#CDBB8A;--good:#A9C29B;--card:#1C3224;--sage:#A9C29B;--shadow:0 12px 28px -10px rgba(0,0,0,.55),0 30px 60px -30px rgba(0,0,0,.7);--noise:.2}}
+.seal{border:0;border-radius:10px;background:#1D3E2B;color:#F3F3EB;font:400 26px/1 var(--brush);transform:none;width:42px;height:42px;padding-top:2px}
+.seal.big{width:84px;height:84px;font-size:56px;border-radius:18px}
+@media (prefers-color-scheme:dark){.seal{background:#F3F3EB;color:#1D3E2B}}
+.brand-t small{text-transform:none;letter-spacing:.04em}
+.eyebrow{font-family:var(--serif);color:var(--sage);letter-spacing:.12em}
+.title{font-weight:500;color:var(--sage);font-size:40px;letter-spacing:-.025em}
+@media (prefers-color-scheme:dark){.title{color:var(--ink)}}
+.chips button.on{background:var(--red);border-color:var(--red);color:var(--paper)}
+input[type=range]::-webkit-slider-thumb{border-color:var(--sage)}
+.primary{background:#1D3E2B;color:#F3F3EB;box-shadow:0 10px 22px -12px rgba(29,62,43,.7)}
+@media (prefers-color-scheme:dark){.primary{background:#A9C29B;color:#14241A}}
+.brush i{background:var(--sage)}
+.face{border-radius:18px;background-image:none}
+.face::before{display:none}
+.face.f{box-shadow:var(--shadow),inset 0 0 0 1px var(--line)}
+.face.b{background:var(--card);box-shadow:var(--shadow),inset 0 0 0 1px var(--line)}
+.corner{font-family:var(--brush);font-size:16px;color:var(--sage)}
+.jp{font-weight:400;letter-spacing:.02em}
+.ru{font-weight:500;color:var(--sage)}
+@media (prefers-color-scheme:dark){.ru{color:var(--ink)}}
+.vi{display:inline-block;border:0;background:var(--pink);color:var(--pinkInk);border-radius:999px;padding:8px 18px;margin-top:22px}
+.pill{border-width:1px}
+.pill.mid{background:var(--pink);color:var(--pinkInk);border-color:var(--pink)}
+.pill.good{color:#F3F3EB}
+@media (prefers-color-scheme:dark){.pill.good{color:#14241A}}
+.toggle input:checked+.sw{background:var(--sage)}
+.shead em{color:var(--pinkInk);background:var(--pink);padding:2px 10px;border-radius:99px}
+.bar .l,.lg.l{background:#1D3E2B}.bar .s,.lg.s{background:var(--sage);opacity:.6}
+@media (prefers-color-scheme:dark){.bar .l,.lg.l{background:#A9C29B}}
+.danger{color:var(--bad)}
+.ok{color:var(--sage)}
+.seal{font-size:32px;line-height:42px;padding:0}.seal.big{font-size:64px;line-height:84px}

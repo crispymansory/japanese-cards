@@ -3,11 +3,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="日本語">
-<meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#16140F" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F3EB" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#14241A" media="(prefers-color-scheme: dark)">
 <title>Заучивалка</title><link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&family=Yuji+Syuku&display=swap">
 <link rel="stylesheet" href="style.css"></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7M6 9.5V20h12V9.5M10 20v-5h4v5"/></symbol>
@@ -16,13 +16,13 @@
 <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
 </defs></svg>
 <header class="top">
- <button id="homeBtn" class="brand" aria-label="Главная"><span class="seal">日</span><span class="brand-t"><b>Заучивалка</b><small>Genki · N5</small></span></button>
+ <button id="homeBtn" class="brand" aria-label="Главная"><span class="seal">幽</span><span class="brand-t"><b>Заучивалка</b><small>日本語 ~ Genki · N5</small></span></button>
  <nav><button id="statsBtn" class="icon" aria-label="Статистика"><svg><use href="#i-stats"/></svg></button></nav>
 </header>
 <div class="brush"><i id="brushFill"></i></div>
 <main>
 <section id="home">
- <p class="eyebrow">今日の勉強</p>
+ <p class="eyebrow">今日の勉強 ~</p>
  <h2 class="title">Что учим сегодня?</h2>
  <div class="block"><h3>Уроки</h3><div id="lessons" class="chips"></div></div>
  <div class="block"><h3>Направление</h3><div id="dir" class="seg">
@@ -50,7 +50,7 @@
  </div>
  <div id="grade" hidden><button data-g="0" class="pill bad">Не помню</button><button data-g="1" class="pill mid">С трудом</button><button data-g="2" class="pill good">Помню</button></div>
 </section>
-<section id="done" hidden><div class="donebox"><span class="seal big">済</span><h2 class="title">Сессия завершена</h2><p id="doneText"></p><button class="primary" id="againBtn">На главную</button></div></section>
+<section id="done" hidden><div class="donebox"><span class="seal big">玄</span><h2 class="title">Сессия завершена</h2><p id="doneText"></p><button class="primary" id="againBtn">На главную</button></div></section>
 <section id="stats" hidden><p class="eyebrow">進歩</p><h2 class="title">Статистика</h2><div id="statTable"></div>
  <p class="legend"><i class="lg l"></i>выучено <i class="lg s"></i>изучаю <i class="lg n"></i>новые</p>
  <p class="hint">Выучено — интервал повторения 7 дней и больше.</p><button id="resetBtn" class="quiet danger">Сбросить прогресс</button></section>
